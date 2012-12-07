@@ -5,31 +5,62 @@
 	<version>1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
+	<name>eluder-parent</name>
+	<description>Parent POM for all org.eluder projects</description>
+	<url>https://github.com/trautonen/eluder-parent</url>
+	<inceptionYear>2012</inceptionYear>
+	<organization>
+		<name>Tapio Rautonen</name>
+	</organization>
+
+	<developers>
+		<developer>
+			<name>Tapio Rautonen</name>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/trautonen/eluder-parent.git</connection>
+		<developerConnection>scm:git:git://github.com/trautonen/eluder-parent.git</developerConnection>
+		<url>https://github.com/trautonen/eluder-parent</url>
+	</scm>
+
+	<prerequisites>
+		<maven>3.0.0</maven>
+	</prerequisites>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		
+
 		<java.version>1.6</java.version>
-		
-		<junit.version>4.10</junit.version>
+		<license.licenseName>mit</license.licenseName>
+		<license.licenceFile>${project.basedir}/LICENSE.MIT</license.licenceFile>
+		<license.canUpdateCopyright>true</license.canUpdateCopyright>
+		<license.canUpdateDescription>true</license.canUpdateDescription>
+		<license.canUpdateLicense>true</license.canUpdateLicense>
+
+		<junit.version>4.11</junit.version>
 		<mockito.version>1.9.5</mockito.version>
 		<slf4j.version>1.7.2</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
-		
+
 		<maven.surefire.version>2.12.4</maven.surefire.version>
 		<maven.source.version>2.2.1</maven.source.version>
+		<maven.javadoc.version>2.9</maven.javadoc.version>
 		<maven.site.version>3.2</maven.site.version>
 		<maven.jar.version>2.4</maven.jar.version>
 		<maven.war.version>2.3</maven.war.version>
 		<maven.gpg.version>1.4</maven.gpg.version>
-		<maven.compiler.version>2.5.1</maven.compiler.version>
+		<maven.compiler.version>3.0</maven.compiler.version>
 		<maven.resources.version>2.6</maven.resources.version>
 		<maven.install.version>2.4</maven.install.version>
+		<maven.license.version>1.3</maven.license.version>
 	</properties>
 
 	<licenses>
 		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<name>The MIT License (MIT)</name>
+			<url>http://opensource.org/licenses/MIT</url>
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
@@ -130,15 +161,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-gpg-plugin</artifactId>
 					<version>${maven.gpg.version}</version>
-					<executions>
-						<execution>
-							<id>sign-artifacts</id>
-							<phase>install</phase>
-							<goals>
-								<goal>sign</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -174,14 +196,6 @@
 							<link>http://download.oracle.com/javase/6/docs/api</link>
 						</links>
 					</configuration>
-					<executions>
-						<execution>
-							<id>attach-javadocs</id>
-							<goals>
-								<goal>jar</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -192,15 +206,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
 					<version>${maven.source.version}</version>
-					<executions>
-						<execution>
-							<id>attach-sources</id>
-							<goals>
-								<goal>jar</goal>
-								<goal>test-jar</goal>
-							</goals>
-						</execution>
-					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -219,7 +224,107 @@
 						</dependency>
 					</dependencies>
 				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>license-maven-plugin</artifactId>
+					<version>${maven.license.version}</version>
+					<configuration>
+						<verbose>false</verbose>
+						<addSvnKeyWords>false</addSvnKeyWords>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>prepare-release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>license-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>update-file-license</id>
+								<goals>
+									<goal>update-file-header</goal>
+								</goals>
+								<phase>process-sources</phase>
+							</execution>
+							<execution>
+								<id>update-project-license</id>
+								<goals>
+									<goal>update-project-license</goal>
+								</goals>
+								<phase>process-resources</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- 
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+								<phase>verify</phase>
+							</execution>
+						</executions>
+					</plugin>
+					 -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar</goal>
+									<goal>test-jar</goal>
+								</goals>
+								<phase>package</phase>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>license-maven-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>check-license</id>
+								<goals>
+									<goal>check-file-header</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
