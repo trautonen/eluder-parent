@@ -8,7 +8,7 @@
 
 	<groupId>org.eluder</groupId>
 	<artifactId>eluder-parent</artifactId>
-	<version>1</version>
+	<version>1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>eluder-parent</name>
@@ -309,16 +309,6 @@
 			<id>prepare-release</id>
 			<build>
 				<plugins>
-					<plugin>
-						<groupId>org.sonatype.plugins</groupId>
-						<artifactId>nexus-staging-maven-plugin</artifactId>
-						<version>1.2</version>
-						<extensions>true</extensions>
-						<configuration>
-							<serverId>local-nexus</serverId>
-							<nexusUrl>http://localhost:8081/nexus/</nexusUrl>
-						</configuration>
-					</plugin>
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
 						<artifactId>license-maven-plugin</artifactId>
