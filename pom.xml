@@ -9,11 +9,11 @@
 
 	<groupId>org.eluder</groupId>
 	<artifactId>eluder-parent</artifactId>
-	<version>3-SNAPSHOT</version>
+	<version>3</version>
 	<packaging>pom</packaging>
 
 	<name>eluder-parent</name>
-	<description>Parent POM for all org.eluder projects</description>
+	<description>Parent POM for all org.eluder Maven projects.</description>
 	<url>https://github.com/trautonen/eluder-parent</url>
 	<inceptionYear>2012</inceptionYear>
 
