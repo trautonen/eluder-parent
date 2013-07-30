@@ -60,6 +60,7 @@
 		<slf4j.version>1.7.5</slf4j.version>
 		<log4j.version>1.2.17</log4j.version>
 
+		<maven.clean.version>2.5</maven.clean.version>
 		<maven.surefire.version>2.14.1</maven.surefire.version>
 		<maven.source.version>2.2.1</maven.source.version>
 		<maven.javadoc.version>2.9</maven.javadoc.version>
@@ -71,6 +72,7 @@
 		<maven.resources.version>2.6</maven.resources.version>
 		<maven.install.version>2.4</maven.install.version>
 		<maven.deploy.version>2.7</maven.deploy.version>
+		<maven.checkstyle.version>2.10</maven.checkstyle.version>
 		<maven.license.version>1.4</maven.license.version>
 		<maven.clirr.version>2.5</maven.clirr.version>
 		<maven.jacoco.version>0.6.3.201306030806</maven.jacoco.version>
@@ -147,6 +149,11 @@
 			<plugins>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-clean-plugin</artifactId>
+					<version>${maven.clean.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-install-plugin</artifactId>
 					<version>${maven.install.version}</version>
 				</plugin>
@@ -193,10 +200,8 @@
 						<archive>
 							<index>true</index>
 							<manifest>
-								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
 								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
 							</manifest>
-							<manifestEntries />
 						</archive>
 					</configuration>
 				</plugin>
@@ -250,6 +255,25 @@
 						<processStartTag>#[license]</processStartTag>
 						<processEndTag>%[license]</processEndTag>
 					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-checkstyle-plugin</artifactId>
+					<version>${maven.checkstyle.version}</version>
+					<configuration>
+						<configLocation>etc/checkstyle.xml</configLocation>
+						<consoleOutput>true</consoleOutput>
+						<failsOnError>true</failsOnError>
+					</configuration>
+					<executions>
+						<execution>
+							<id>checkstyle</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>check</goal>
+							</goals>
+						</execution>
+					</executions>
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
@@ -379,28 +403,6 @@
 								<phase>verify</phase>
 							</execution>
 						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>jacoco</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.jacoco</groupId>
-						<artifactId>jacoco-maven-plugin</artifactId>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<profile>
-			<id>cobertura</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>cobertura-maven-plugin</artifactId>
 					</plugin>
 				</plugins>
 			</build>
