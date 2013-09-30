@@ -47,6 +47,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<java.version>1.6</java.version>
 		<license.licenseName>mit</license.licenseName>
@@ -61,22 +62,22 @@
 		<log4j.version>1.2.17</log4j.version>
 
 		<maven.clean.version>2.5</maven.clean.version>
-		<maven.surefire.version>2.14.1</maven.surefire.version>
+		<maven.surefire.version>2.16</maven.surefire.version>
 		<maven.source.version>2.2.1</maven.source.version>
-		<maven.javadoc.version>2.9</maven.javadoc.version>
+		<maven.javadoc.version>2.9.1</maven.javadoc.version>
 		<maven.site.version>3.3</maven.site.version>
 		<maven.jar.version>2.4</maven.jar.version>
-		<maven.war.version>2.3</maven.war.version>
+		<maven.war.version>2.4</maven.war.version>
 		<maven.gpg.version>1.4</maven.gpg.version>
 		<maven.compiler.version>3.1</maven.compiler.version>
 		<maven.resources.version>2.6</maven.resources.version>
-		<maven.install.version>2.4</maven.install.version>
-		<maven.deploy.version>2.7</maven.deploy.version>
+		<maven.install.version>2.5</maven.install.version>
+		<maven.deploy.version>2.8</maven.deploy.version>
 		<maven.checkstyle.version>2.10</maven.checkstyle.version>
-		<maven.license.version>1.4</maven.license.version>
-		<maven.clirr.version>2.5</maven.clirr.version>
+		<maven.license.version>1.5</maven.license.version>
+		<maven.clirr.version>2.6</maven.clirr.version>
 		<maven.jacoco.version>0.6.3.201306030806</maven.jacoco.version>
-		<maven.cobertura.version>2.5.2</maven.cobertura.version>
+		<maven.cobertura.version>2.6</maven.cobertura.version>
 	</properties>
 
 	<dependencyManagement>
@@ -112,7 +113,6 @@
 				<groupId>log4j</groupId>
 				<artifactId>log4j</artifactId>
 				<version>${log4j.version}</version>
-				<optional>true</optional>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
