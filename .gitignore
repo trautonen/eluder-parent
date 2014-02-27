@@ -1,4 +1,11 @@
 ﻿target
 target/*
-.settings/
+
+# Eclipse
+.settings
 .project
+.classpath
+
+# Idea
+*.iml
+.idea
