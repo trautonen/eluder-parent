@@ -9,7 +9,7 @@
 
 	<groupId>org.eluder</groupId>
 	<artifactId>eluder-parent</artifactId>
-	<version>5</version>
+	<version>6-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>eluder-parent</name>
