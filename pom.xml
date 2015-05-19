@@ -56,6 +56,8 @@
     <license.canUpdateCopyright>true</license.canUpdateCopyright>
     <license.canUpdateDescription>true</license.canUpdateDescription>
     <license.canUpdateLicense>true</license.canUpdateLicense>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
 
     <junit.version>4.12</junit.version>
     <mockito.version>1.10.19</mockito.version>
@@ -178,8 +180,6 @@
           <artifactId>maven-compiler-plugin</artifactId>
           <version>${maven.compiler.version}</version>
           <configuration>
-            <source>${java.version}</source>
-            <target>${java.version}</target>
             <optimize>true</optimize>
             <debug>true</debug>
           </configuration>
