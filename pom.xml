@@ -81,7 +81,7 @@
     <maven.checkstyle.version>2.15</maven.checkstyle.version>
     <maven.license.version>1.8</maven.license.version>
     <maven.clirr.version>2.6.1</maven.clirr.version>
-    <maven.jacoco.version>0.7.4.201502262128</maven.jacoco.version>
+    <maven.jacoco.version>0.7.5.201505241946</maven.jacoco.version>
     <maven.cobertura.version>2.7</maven.cobertura.version>
   </properties>
 
