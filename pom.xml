@@ -84,6 +84,7 @@
     <maven.clirr.version>2.6.1</maven.clirr.version>
     <maven.jacoco.version>0.7.5.201505241946</maven.jacoco.version>
     <maven.cobertura.version>2.7</maven.cobertura.version>
+    <maven.coveralls.version>3.1.0</maven.coveralls.version>
   </properties>
 
   <dependencyManagement>
@@ -336,6 +337,11 @@
             <format>xml</format>
             <maxmem>256m</maxmem>
           </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.eluder.coveralls</groupId>
+          <artifactId>coveralls-maven-plugin</artifactId>
+          <version>${maven.coveralls.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
