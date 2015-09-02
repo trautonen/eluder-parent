@@ -79,12 +79,12 @@
     <maven.resources.version>2.7</maven.resources.version>
     <maven.install.version>2.5.2</maven.install.version>
     <maven.deploy.version>2.8.2</maven.deploy.version>
-    <maven.checkstyle.version>2.15</maven.checkstyle.version>
+    <maven.checkstyle.version>2.16</maven.checkstyle.version>
     <maven.license.version>1.8</maven.license.version>
     <maven.clirr.version>2.6.1</maven.clirr.version>
     <maven.jacoco.version>0.7.5.201505241946</maven.jacoco.version>
     <maven.cobertura.version>2.7</maven.cobertura.version>
-    <maven.coveralls.version>3.2.0</maven.coveralls.version>
+    <maven.coveralls.version>4.0.0</maven.coveralls.version>
   </properties>
 
   <dependencyManagement>
