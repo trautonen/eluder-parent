@@ -1,9 +1,11 @@
+dist: xenial
+
 language: java
 
 sudo: false
 
 jdk:
-  - oraclejdk7
+  - openjdk8
   
 branches:
   only:
