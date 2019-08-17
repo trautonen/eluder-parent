@@ -26,11 +26,11 @@ mvn clirr:check -DcomparisonVersion=<version>
 Display dependency updates:
 
 ```
-mvn versions:display-dependency-updates
+mvn -U versions:display-dependency-updates
 ```
 
 Display plugin updates:
 
 ```
-mvn versions:display-plugin-updates
+mvn -U versions:display-plugin-updates
 ```
